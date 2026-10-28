@@ -1,0 +1,16 @@
+# Local development database only. Do not reuse these demo passwords outside a laptop.
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: localcoin_banking
+      MYSQL_USER: localcoin
+      MYSQL_PASSWORD: localcoin_dev_password
+      MYSQL_ROOT_PASSWORD: localcoin_root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./task1.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - localcoin_mysql_data:/var/lib/mysql
+volumes:
+  localcoin_mysql_data:

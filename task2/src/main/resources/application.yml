@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: localcoin-banking-api
+  datasource:
+    # Default local database. It is recreated each time the application starts.
+    url: jdbc:h2:mem:localcoin;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+server:
+  error:
+    include-message: never

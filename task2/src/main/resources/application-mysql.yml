@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/localcoin_banking?useSSL=false&serverTimezone=UTC}
+    username: ${DB_USERNAME:localcoin}
+    password: ${DB_PASSWORD:localcoin_dev_password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      # Apply task1.sql first. Hibernate should check the schema, not edit it.
+      ddl-auto: validate
+    open-in-view: false
